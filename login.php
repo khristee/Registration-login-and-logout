@@ -12,6 +12,7 @@ $_SESSION["SuccessMessage"]= null;?>
 
 Username: <input type="text" name="loginuname"><br>
 Password: <input type="password" name="loginpass"><br>
+<a href="resetpassword.php">Click here to reset password</a>
 <input type="submit" name="submit" value="Submit Account">
 
 <?php
