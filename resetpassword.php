@@ -16,20 +16,22 @@
     <input type="submit" name="submit" value="Submit Account">
     </form>
     <?php
-      $FileName = $_POST['uname'] . ".json";
+    
     if (isset($_POST['submit'])){
     if(empty($_POST['uname']) || empty($_POST['pass1'])){ 
         echo "Username or password cannot be empty";
-    } elseif (file_exists($FileName)) {
+    } elseif (file_exists($_POST['uname'] . ".json")) {
     //    echo "good USername";
        $name = $_POST['uname'];
        $resetpass1 = $_POST['pass1'];
+       $FileName = $_POST['uname'] . ".json";
         $arraydir = [
             'Username' => $name,
             'Password' => $resetpass1,
         ];
         $result = file_put_contents($FileName, json_encode($arraydir));
-
+        $_SESSION["SuccessMessage"] = "Password change Successful";
+        header("Location:login.php");
     }
     
     else{
